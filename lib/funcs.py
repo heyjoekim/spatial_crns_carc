@@ -80,5 +80,22 @@ def calcHist(df_hits, point, date):
         'counts':counts,
         'bin_edge_left':bin_edges[:-1]
         })
-    hist_nc.to_csv('./hists/{}_{}_hist.csv'.format(point, date))
+    hist_nc.to_csv('./hists/{:q}_{}_hist.csv'.format(point, date))
     return(hist_nc)
+
+
+def calcSWEfromNC(n_cals, n_raws):
+    rho = (1.135988 - 0.05)
+    theta_g = (0.142 + 0.0595)/rho
+
+    a0 = 0.0808
+    a1 = 0.3720
+    a2 = 0.1150
+
+    N_0 = n_cals / ((a0/(theta_g*rho+a1))+a1)
+    N_wat = 0.24*N_0
+    lamb = -4.8
+
+    swes = lamb*np.log((n_raws-N_wat)/(n_cals-N_wat))
+    return(swes)
+
