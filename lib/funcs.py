@@ -99,3 +99,25 @@ def calcSWEfromNC(n_cals, n_raws):
     swes = lamb*np.log((n_raws-N_wat)/(n_cals-N_wat))
     return(swes)
 
+
+def getINDS(xv, yv):
+    xx = (xv+500)/2
+    yy = np.abs(yv-500)/2
+    return(xx-1, yy-1)
+
+
+def spatialweighting(xind, yind):
+    # create 500 by 500 of distances (in meters)
+    xs = np.arange(2,1000.1,2)
+    ys = np.arange(2,1000.1,2)
+
+    # center the distances from CRNS location at (xind, yind)
+    xs_centered = xs - 2*int(xind)
+    ys_centered = 2*int(yind) - ys
+
+    # compute distances
+    XX, YY = np.meshgrid(xs_centered, ys_centered)
+    dists = np.sqrt(XX**2 + YY**2)
+    return(dists)
+
+
