@@ -1,12 +1,13 @@
 cff-version: 1.2.0
 message: "If you use this software, please cite it as below"
 authors:
-    - family-names: "Kim"
-       given-names: "Haejo"
-    - family-names: "Tuttle"
-       given-names: "Sam"
+- family-names: "Kim"
+  given-names: "Haejo"
+  orcid: "https://orcid.org/0009-0001-2892-7997"
+- family-names: "Tuttle"
+  given-names: "Sam"
 title: Data and Model Results for Spatial Analysis of CRNS at the CARC
-version: v1
+version: v0.1-alpha
 doi:
 date-released: 2024-12-31
 url: https://github.com/heybyejoe/spatial_crns_carc/
