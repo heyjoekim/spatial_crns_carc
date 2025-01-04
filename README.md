@@ -7,4 +7,6 @@ Gridded files can be downloaded freely from the NSIDC. A script is provided to d
 
 A free NASA Earthdata Login account is needed to access these data.
 The script can be called by passing a username and password with the following call
+
+
 ```./nsidc_download.sh -u <uid> -p <pwd>```
